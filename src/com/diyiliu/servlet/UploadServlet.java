@@ -24,8 +24,11 @@ public class UploadServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Part part = request.getPart("file");
         String disposition = part.getHeader("content-disposition");
-
         System.out.println(disposition);
+
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("{\"status\":1,\"key\":123456}");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
